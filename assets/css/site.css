@@ -39,6 +39,7 @@
   --terracotta: #A65733;   /* roof tile. CTA warmth against the green */
   --terracotta-deep: #7F3F22;
   --lake:       #2F6E79;
+  --teal:       #2F6E79;   /* focus ring color, same as lake */
   --muted:      #5C5247;
   --keyline:    #DED3C4;
 
@@ -290,6 +291,14 @@ figure { margin: 0; }
 .statement .eyebrow { color: var(--leaf-bright); }
 .band--dark .pull { border-left-color: var(--leaf); color: #fff; }
 .band--dark .pull cite { color: #A9BFA0; }
+
+/* band color variation: alternate dark sections with canopy-2 to break monotony */
+.band--dark--alt { background: var(--canopy-2); }
+.feature--alt { background: var(--canopy-2); }
+.feature--alt::after { background: linear-gradient(to left, rgba(20,53,40,.94) 0%, rgba(20,53,40,.80) 42%, rgba(20,53,40,.25) 78%, rgba(20,53,40,.05) 100%); }
+.feature--alt.feature--left::after { background: linear-gradient(to right, rgba(20,53,40,.96) 0%, rgba(20,53,40,.92) 34%, rgba(20,53,40,.55) 58%, rgba(20,53,40,.12) 85%, rgba(20,53,40,0) 100%); }
+.closer--alt { background: var(--canopy-2); }
+.closer--alt::after { background: radial-gradient(120% 90% at 50% 45%, rgba(20,53,40,.78) 0%, rgba(20,53,40,.88) 60%, rgba(20,53,40,.94) 100%); }
 
 /* facts on canopy */
 .facts--dark { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.14); }
