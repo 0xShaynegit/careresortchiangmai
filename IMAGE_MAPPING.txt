@@ -1,0 +1,108 @@
+CARE RESORT CHIANG MAI - IMAGE CATEGORIZATION & RENAMING MAPPING
+==============================================================
+
+NAMING STANDARD: careresortchiangmai-care-resort-chiang-mai-[category]-[descriptor]
+
+HASH-NAMED IMAGES (15 files - viewed and categorized):
+1vgzjer846_b36f08.jpg | villa-terrace-flowers
+2632j86r9g_d053cb.jpg | villa-exterior-thai-style
+27365b6qi3_7bf4e9.jpg | activity-cultural-celebration
+2axfy16jkj_80dc1c.jpg | care-activity-card-sorting
+2s1089cp94_d053cb.jpg | villa-exterior-landscaped
+2yqa79xsz6_11d535.jpg | activity-residents-staff-garden
+3r5p29773i_a9ad9c.jpg | activity-group-walking
+5988qz28n3_b36f08.jpg | activity-yoga-fitness-class
+59z1895j2x_11d535.jpg | activity-pool-dining-billiards
+626j9r39vc_622cf0.jpg | resort-pool-mountain-view
+692c054f27_b36f08.jpg | care-nursing-bed-check
+6m4jq26l8i_b36f08.jpg | care-caregiver-resident-garden
+77le4i7thf_b36f08.jpg | care-health-check
+81es80158d_053c28.jpg | resort-overview-pool-landscape
+8r38x7iabo_b36f08.jpg | villa-terrace-flowers-duplicate
+cg41b8s57j_b36f08.jpg | care-health-check-duplicate
+h2t28k2owg_d053cb.jpg | villa-waterside-lake
+hwzyts0k18_b36f08.jpg | activity-games-bingo
+i0d6m5b2yb_80dc1c.jpg | residents-with-caregiver-garden
+i1n3bo5kh6_b36f08.jpg | activity-yoga-fitness-class-2
+m3rtalxx03_b36f08.jpg | activity-yoga-fitness-class-3
+mkswdt689v_b36f08.jpg | care-health-check-2
+r61p7x5imp_a9ad9c.jpg | interior-wall-detail
+u5j2x8g96a_053c28.jpg | activity-volleyball-ball-games
+wa6tl4451a_11d535.jpg | activity-collage-outdoor
+wb1pm91ii3_b36f08.jpg | villa-terrace-flowers-2
+x669b44clv_80dc1c.jpg | activity-billiards-fishing
+yf2i263c26_11d535.jpg | activity-collage-outdoor-2
+z1i605nebm_b36f08.jpg | villa-waterside-buildings
+z3h067u824_053c28.jpg | resort-gardens-landscape
+
+SEMI-NAMED IMAGES (already have descriptions - minimal changes):
+about1_6ac260.jpg | about-us-resort-view
+about2_6ac260.jpg | about-us-founder
+about3_6ac260.jpg | about-us-staff-community
+about4_6ac260.jpg | about-us-setting
+chiangmai1_6ac260.jpg | chiang-mai-landscape-1
+chiangmai2_6ac260.jpg | chiang-mai-landscape-2
+chiangmai3_6ac260.jpg | chiang-mai-landscape-3
+contact2_6ac260.jpg | contact-resort-view
+dementia1_6ac260.jpg | dementia-care-activity-1
+dementia2_6ac260.jpg | dementia-care-activity-2
+dementia3_6ac260.jpg | dementia-care-activity-3
+fac1_6ac260.jpg | facilities-villa-exterior
+fac2_6ac260.jpg | facilities-resort-view
+fac3_6ac260.jpg | facilities-common-area
+long1_6ac260.jpg | long-stay-villa-1
+long2_6ac260.jpg | long-stay-villa-2
+long3_6ac260.jpg | long-stay-garden
+long5_6ac260.jpg | long-stay-activity
+long6_6ac260.jpg | long-stay-pool
+long7_6ac260.jpg | long-stay-facility
+long8_6ac260.jpg | long-stay-terrace
+long9_6ac260.jpg | long-stay-landscape
+short1_6ac260.jpg | short-stay-pool
+short2_6ac260.jpg | short-stay-room
+short3_6ac260.jpg | short-stay-activity
+globals-2025_203f53.jpg | award-globals-2025
+logo_6ac260.jpg | logo-main
+logo_435ba4.jpg | logo-variant-1
+logo_99e4ab.jpg | logo-variant-2
+logo_e096f5.jpg | logo-variant-3
+logo2_6ac260.jpg | logo-secondary
+pic1_435ba4.jpg | theme-pic-variant-1
+pic1_99e4ab.jpg | theme-pic-variant-2
+pic1_e096f5.jpg | theme-pic-variant-3
+pic2_435ba4.jpg | theme-pic-variant-4
+pic2_99e4ab.jpg | theme-pic-variant-5
+pic2_e096f5.jpg | theme-pic-variant-6
+pic3_435ba4.jpg | theme-pic-variant-7
+pic3_99e4ab.jpg | theme-pic-variant-8
+pic3_e096f5.jpg | theme-pic-variant-9
+pic4_435ba4.jpg | theme-pic-variant-10
+pic4_99e4ab.jpg | theme-pic-variant-11
+pic4_e096f5.jpg | theme-pic-variant-12
+pic5_435ba4.jpg | theme-pic-variant-13
+pic5_99e4ab.jpg | theme-pic-variant-14
+pic5_e096f5.jpg | theme-pic-variant-15
+pic6_99e4ab.jpg | theme-pic-variant-16
+bg_6ac260.jpg | ui-background-pattern
+top_6ac260.jpg | ui-header-pattern
+right_6ac260.jpg | ui-sidebar-pattern
+right_435ba4.jpg | ui-sidebar-variant-1
+right_99e4ab.jpg | ui-sidebar-variant-2
+right_e096f5.jpg | ui-sidebar-variant-3
+en_6ac260.png | lang-flag-en
+th_6ac260.png | lang-flag-th
+jp_6ac260.png | lang-flag-jp
+kr_e096f5.png | lang-flag-kr
+
+NEXT STEPS:
+1. Rename all files per mapping above
+2. Crop whitespace from collage/multi-panel images
+3. Convert each to both .webp and .avif
+4. Update all image URLs in HTML files to new names
+5. Delete old files after verification
+
+NOTES:
+- Multiple duplicates found (villa-terrace-flowers appears 3x, care scenes appear multiple times)
+- Collage images with white sections need cropping
+- Theme variants (pic1-6, logo*, right*) likely for different branding/language versions
+- Total: 87 source images → ~87 renamed files + conversions to webp/avif
