@@ -18,3 +18,4 @@ Desktop.ini
 # Local servers / scratch
 *.log
 .cache/
+.gstack/
