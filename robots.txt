@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /images/
+Disallow: /.ua/
+
+User-agent: AdsBot-Google
+Allow: /
+
+Sitemap: https://www.careresortchiangmai.com/sitemap.xml
