@@ -369,6 +369,64 @@ main:has(.closer) + .site-foot { margin-top: 0; }
           mask: var(--kalae) center / contain no-repeat;
 }
 
+.press-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 20px;
+  margin-top: 2.5rem;
+  padding: 0 200px;
+  width: 100%;
+}
+.press-tile {
+  position: relative; display: block; overflow: hidden; isolation: isolate;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+.press-tile::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(10,26,18,.75) 0%, rgba(10,26,18,.15) 38%, rgba(10,26,18,0) 60%);
+}
+.press-tile--guardian { grid-column: 1 / 2; grid-row: 1 / 3; }
+.press-tile--telegraph { grid-column: 2 / 3; grid-row: 1 / 2; }
+.press-tile--edgeservices { grid-column: 2 / 3; grid-row: 2 / 3; }
+.press-tile--eliteplus { grid-column: 3 / 4; grid-row: 1 / 3; }
+.press-tile--voa { grid-column: 1 / 2; grid-row: 3 / 4; }
+.press-tile--theitem { grid-column: 2 / 3; grid-row: 3 / 4; }
+.press-tile--thelady { grid-column: 3 / 4; grid-row: 3 / 4; }
+.press-tile img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  transition: transform .4s cubic-bezier(.22,.61,.36,1);
+}
+.press-tile__tag {
+  position: absolute; left: 1.1rem; bottom: 1rem; right: 1.1rem; z-index: 2;
+  color: #fff;
+  font-family: var(--serif); font-size: clamp(1.05rem, 1.4vw, 1.4rem); font-weight: 600;
+  line-height: 1.15; text-shadow: 0 2px 12px rgba(0,0,0,.4);
+}
+.press-tile--guardian .press-tile__tag { font-size: clamp(1.3rem, 2vw, 1.85rem); }
+.press-tile--voa img { object-position: top center; object-position: center 12%; }
+.press-tile--guardian img,
+.press-tile--eliteplus img { object-fit: contain; object-position: top center; background: var(--canopy); }
+@media (hover: hover) and (pointer: fine) {
+  .press-tile:hover img { transform: scale(1.06); }
+}
+@media (max-width: 1000px) {
+  .press-mosaic { padding: 0 clamp(20px, 6vw, 100px); }
+}
+@media (max-width: 720px) {
+  .press-mosaic { grid-template-columns: 1fr; grid-auto-rows: auto; padding: 0 24px; gap: 16px; }
+  .press-tile--guardian,
+  .press-tile--telegraph,
+  .press-tile--edgeservices,
+  .press-tile--eliteplus,
+  .press-tile--voa,
+  .press-tile--theitem,
+  .press-tile--thelady { grid-column: auto; grid-row: auto; }
+  .press-tile { aspect-ratio: 16 / 10; }
+}
+
 /* tiered eave rule: two stacked lines of unequal length, the way
    Lanna roofs step down in tiers */
 .eave { margin: 1.5rem 0 2rem; }

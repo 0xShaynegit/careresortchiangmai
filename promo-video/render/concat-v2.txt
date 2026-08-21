@@ -1,0 +1,6 @@
+file 'clips/open.mp4'
+file 'clips/promise.mp4'
+file 'clips/founder.mp4'
+file 'clips/press.mp4'
+file 'clips/testimonial.mp4'
+file 'clips/close.mp4'
