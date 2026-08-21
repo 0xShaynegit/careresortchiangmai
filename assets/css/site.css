@@ -738,9 +738,52 @@ html { scroll-padding-top: 6.5rem; }
 .kalae-plate b[lang="th"] { font-family: var(--sans); font-size: 1.6rem; color: #3F6B26; line-height: 1.4; font-weight: 700; }
 .kalae-plate b + b { font-size: var(--step-1); margin-bottom: .5rem; letter-spacing: .01em; }
 .kalae-plate span { display: block; color: var(--muted); font-size: var(--step--1); line-height: 1.55; max-width: none; font-weight: 500; }
+@media (max-width: 999px) { .kalae-plate { min-height: 505px; } }
 
 @media (min-width: 1000px) { .statement blockquote { max-width: 18ch; } }
 
 /* the box stretches to the copy column, so the column must end exactly at the
    last line of text, not 22px below it on a trailing paragraph margin */
 .statement__copy > *:last-child { margin-bottom: 0; }
+
+/* ---------- contact form ---------- */
+form { max-width: 640px; margin-top: 2.5rem; }
+.form-group { margin-bottom: 1.75rem; position: relative; }
+.form-group label {
+  display: block; font-family: var(--serif); font-size: var(--step--1);
+  font-weight: 600; color: var(--ink); margin-bottom: .5rem; letter-spacing: .01em;
+}
+.form-group label span[aria-label="required"] { color: var(--terracotta-deep); margin-left: .15em; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; display: block; appearance: none;
+  font-family: var(--sans); font-size: var(--step--1); font-weight: 500; color: var(--ink);
+  background: var(--paper); border: 1.5px solid var(--keyline); border-radius: 3px;
+  padding: .85rem 1rem; min-height: 52px;
+  transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background 160ms var(--ease-out);
+}
+.form-group textarea { min-height: auto; padding-top: .9rem; line-height: 1.55; resize: vertical; }
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%235C5247' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted); opacity: .75; }
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover { border-color: #C7B9A2; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none; border-color: var(--teal); background: #fff;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent);
+}
+.form-note { font-size: .875rem; color: var(--muted); margin: .5rem 0 0; line-height: 1.5; }
+.form-actions { margin-top: 2.25rem; }
+.form-actions .btn { min-width: 220px; }
+.form-privacy {
+  max-width: 640px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--keyline);
+  font-size: .875rem; color: var(--muted); line-height: 1.6;
+}
+.form-privacy a { color: var(--terracotta-deep); }
