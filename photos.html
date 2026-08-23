@@ -12,11 +12,23 @@
 <style>
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--keyline);
+}
+@media (min-width: 760px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
 }
 .gallery figure {
   margin: 0;
+}
+.gallery figure picture,
+.gallery figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
 }
 .gallery > div {
   grid-column: 1 / -1;
@@ -24,7 +36,7 @@
 .gallery figcaption {
   padding-top: var(--keyline);
   font-size: var(--step--1);
-  color: var(--muted);
+  color: #D9E5D2;
 }
 </style>
 <script>document.documentElement.classList.add("js");</script>
@@ -70,7 +82,7 @@
 
         <div>
           <h2>The grounds</h2>
-          <p style="margin-top: 0; font-size: var(--step--1); color: var(--muted);">Twelve acres, more than 1,000 trees, a lake and fishponds.</p>
+          <p style="margin-top: 0; font-size: var(--step--1); color: #D9E5D2;">Twelve acres, more than 1,000 trees, a lake and fishponds.</p>
         </div>
 
         <figure>
@@ -110,8 +122,8 @@
         </figure>
 
         <div>
-          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid var(--muted);">The villas</h2>
-          <p style="margin-top: 0; font-size: var(--step--1); color: var(--muted);">58 villa rooms, in modern Thai style, each with its own terrace.</p>
+          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid rgba(217,229,210,.35);">The villas</h2>
+          <p style="margin-top: 0; font-size: var(--step--1); color: #D9E5D2;">58 villa rooms, in modern Thai style, each with its own terrace.</p>
         </div>
 
         <figure>
@@ -133,8 +145,8 @@
         </figure>
 
         <div>
-          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid var(--muted);">Pools, fitness and spa</h2>
-          <p style="margin-top: 0; font-size: var(--step--1); color: var(--muted);">Two pools, one with ramp access and a lift into the water.</p>
+          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid rgba(217,229,210,.35);">Pools, fitness and spa</h2>
+          <p style="margin-top: 0; font-size: var(--step--1); color: #D9E5D2;">Two pools, one with ramp access and a lift into the water.</p>
         </div>
 
         <figure>
@@ -147,8 +159,8 @@
         </figure>
 
         <div>
-          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid var(--muted);">Care</h2>
-          <p style="margin-top: 0; font-size: var(--step--1); color: var(--muted);">Nursing on site, 24 hours.</p>
+          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid rgba(217,229,210,.35);">Care</h2>
+          <p style="margin-top: 0; font-size: var(--step--1); color: #D9E5D2;">Nursing on site, 24 hours.</p>
         </div>
 
         <figure>
@@ -170,8 +182,8 @@
         </figure>
 
         <div>
-          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid var(--muted);">Daily life</h2>
-          <p style="margin-top: 0; font-size: var(--step--1); color: var(--muted);">Activities run seven days a week. You join the ones you feel like.</p>
+          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid rgba(217,229,210,.35);">Daily life</h2>
+          <p style="margin-top: 0; font-size: var(--step--1); color: #D9E5D2;">Activities run seven days a week. You join the ones you feel like.</p>
         </div>
 
         <figure>
@@ -184,8 +196,8 @@
         </figure>
 
         <div>
-          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid var(--muted);">Memory care</h2>
-          <p style="margin-top: 0; font-size: var(--step--1); color: var(--muted);">Dementia care inside the same gardens as everyone else, not behind a separate door.</p>
+          <h2 style="margin-top: var(--keyline); padding-top: var(--keyline); border-top: 1px solid rgba(217,229,210,.35);">Memory care</h2>
+          <p style="margin-top: 0; font-size: var(--step--1); color: #D9E5D2;">Dementia care inside the same gardens as everyone else, not behind a separate door.</p>
         </div>
 
         <figure>
