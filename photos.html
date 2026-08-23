@@ -52,7 +52,13 @@
 }
 @media (max-width: 720px) {
   .gallery-overlap-more { display: block; }
-  .gallery-overlap:not(.is-expanded) .gallery-tile:nth-child(n+11) {
+  .gallery-overlap:not(.step-20):not(.step-40):not(.is-expanded) .gallery-tile:nth-child(n+11) {
+    display: none;
+  }
+  .gallery-overlap.step-20:not(.step-40):not(.is-expanded) .gallery-tile:nth-child(n+21) {
+    display: none;
+  }
+  .gallery-overlap.step-40:not(.is-expanded) .gallery-tile:nth-child(n+41) {
     display: none;
   }
 }
@@ -416,16 +422,24 @@
       <a class="gallery-tile" data-lightbox="activities" data-lightbox-full="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.webp" data-lightbox-caption="A resident and carer looking out over the lake." href="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.webp"><picture><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.avif" type="image/avif"><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.webp" type="image/webp"><img src="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.avif" alt="A resident and carer looking out over the lake." loading="lazy"></picture></a>
       <a class="gallery-tile" data-lightbox="activities" data-lightbox-full="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.webp" data-lightbox-caption="A resident writing at a table." href="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.webp"><picture><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.avif" type="image/avif"><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.webp" type="image/webp"><img src="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.avif" alt="A resident writing at a table." loading="lazy"></picture></a>
     </div>
-    <button type="button" class="gallery-overlap-more" data-gallery-more="1">Show all 163 photos</button>
+    <button type="button" class="gallery-overlap-more" data-gallery-more="1">Show 20 photos</button>
   </section>
   <script>
   (function () {
     var btn = document.querySelector('[data-gallery-more]');
     if (!btn) return;
+    var steps = ['step-20', 'step-40', 'is-expanded'];
+    var labels = ['Show 40 photos', 'Show all 163 photos', null];
+    var i = 0;
     btn.addEventListener('click', function () {
       var gallery = btn.previousElementSibling;
-      gallery.classList.add('is-expanded');
-      btn.remove();
+      gallery.classList.add(steps[i]);
+      if (labels[i]) {
+        btn.textContent = labels[i];
+        i++;
+      } else {
+        btn.remove();
+      }
     });
   })();
   </script>
