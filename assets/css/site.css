@@ -787,3 +787,142 @@ form { max-width: 640px; margin-top: 2.5rem; }
   font-size: .875rem; color: var(--muted); line-height: 1.6;
 }
 .form-privacy a { color: var(--terracotta-deep); }
+
+/* ---------- photo galleries: grid / bento / mosaic ---------- */
+/* Shared tile chrome, used by all three gallery types below. */
+.gallery-grid, .gallery-bento, .gallery-mosaic { width: 100%; margin-top: 2.5rem; }
+.gallery-tile {
+  position: relative; display: block; overflow: hidden; isolation: isolate;
+  border-radius: 16px; cursor: zoom-in;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+.gallery-tile img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform .4s var(--ease-out);
+}
+.gallery-tile::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,42,31,.55) 0%, rgba(14,42,31,0) 45%);
+  opacity: 0; transition: opacity .3s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .gallery-tile:hover img { transform: scale(1.05); }
+  .gallery-tile:hover::after { opacity: 1; }
+}
+
+/* Type 1: grid — uniform tiles, 3 cols up to 4, up to 6 rows before it should paginate/split. */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-grid .gallery-tile { aspect-ratio: 4 / 3; }
+.gallery-grid--4col { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .gallery-grid, .gallery-grid--4col { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .gallery-grid, .gallery-grid--4col { grid-template-columns: 1fr; } }
+
+/* Type 2: bento — asymmetric spans, same 3-4 col / up to 6 row envelope as the press mosaic. */
+.gallery-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  gap: 16px;
+}
+.gallery-bento--4col { grid-template-columns: repeat(4, 1fr); }
+.gallery-bento .gallery-tile[data-span="2x2"] { grid-column: span 2; grid-row: span 2; }
+.gallery-bento .gallery-tile[data-span="2x1"] { grid-column: span 2; }
+.gallery-bento .gallery-tile[data-span="1x2"] { grid-row: span 2; }
+@media (max-width: 720px) {
+  .gallery-bento, .gallery-bento--4col { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .gallery-bento .gallery-tile { aspect-ratio: 4 / 3; grid-column: auto !important; grid-row: auto !important; }
+}
+
+/* Type 3: mosaic — for large sets (activities-scale, dozens of photos). CSS columns
+   give organic multi-size tiles without hand-placed spans, unlike the bento type. */
+.gallery-mosaic {
+  column-count: 4; column-gap: 16px;
+}
+.gallery-mosaic .gallery-tile {
+  display: block; width: 100%; margin: 0 0 16px; break-inside: avoid;
+  position: static; aspect-ratio: auto; border-radius: 16px; overflow: hidden;
+}
+.gallery-mosaic .gallery-tile img { position: static; width: 100%; height: auto; }
+@media (max-width: 900px) { .gallery-mosaic { column-count: 3; } }
+@media (max-width: 640px) { .gallery-mosaic { column-count: 2; } }
+@media (max-width: 420px) { .gallery-mosaic { column-count: 1; } }
+
+/* ---------- lightbox (shared by every gallery/grid/bento/mosaic and the press mosaic) ---------- */
+.lightbox-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(10,20,15,.92); padding: clamp(1rem, 4vw, 3rem);
+}
+.lightbox-overlay.is-open { display: flex; }
+html.lightbox-locked, html.lightbox-locked body { overflow: hidden; }
+.lightbox-figure { max-width: min(94vw, 1400px); max-height: 90vh; margin: 0; display: flex; flex-direction: column; align-items: center; }
+.lightbox-img { max-width: 100%; max-height: 82vh; width: auto; height: auto; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.lightbox-caption {
+  margin-top: .75rem; color: #fff; font-family: var(--serif); font-size: 1rem;
+  text-align: center; max-width: 60ch;
+}
+.lightbox-caption[hidden] { display: none; }
+.lightbox-counter { position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.7); font-size: .85rem; letter-spacing: .04em; }
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: absolute; background: rgba(255,255,255,.08); color: #fff; border: none;
+  border-radius: 999px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .2s var(--ease-out);
+}
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,.2); }
+.lightbox-close { top: 1.25rem; right: 1.25rem; width: 44px; height: 44px; font-size: 1.75rem; line-height: 1; }
+.lightbox-prev, .lightbox-next { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; font-size: 2rem; }
+.lightbox-prev { left: clamp(.5rem, 2vw, 2rem); }
+.lightbox-next { right: clamp(.5rem, 2vw, 2rem); }
+.lightbox-prev[hidden], .lightbox-next[hidden] { display: none; }
+@media (max-width: 640px) {
+  .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1.5rem; }
+}
+
+/* Photos page: square-cornered gallery tiles, no rounding. */
+.page-photos .gallery-tile { border-radius: 0; }
+
+/* Type 4: overlap — a scattered photo-wall for very large sets (100+), tiles
+   overlap with alternating rotation and lift to the front on hover/focus. */
+.gallery-overlap {
+  display: flex; flex-wrap: wrap;
+  padding: 2rem clamp(1rem, 4vw, 2rem);
+  gap: 0;
+}
+.gallery-overlap .gallery-tile {
+  position: relative; flex: 0 0 auto;
+  width: clamp(120px, 14vw, 190px); aspect-ratio: 4 / 3;
+  margin: -6px -22px 22px 0;
+  border: 6px solid var(--paper); border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.28);
+  transition: transform .25s var(--ease-out), z-index 0s .25s, box-shadow .25s var(--ease-out);
+  z-index: 1;
+}
+.gallery-overlap .gallery-tile:nth-child(6n+1) { transform: rotate(-4deg); }
+.gallery-overlap .gallery-tile:nth-child(6n+2) { transform: rotate(3deg); top: 10px; }
+.gallery-overlap .gallery-tile:nth-child(6n+3) { transform: rotate(-2deg); top: -8px; }
+.gallery-overlap .gallery-tile:nth-child(6n+4) { transform: rotate(5deg); }
+.gallery-overlap .gallery-tile:nth-child(6n+5) { transform: rotate(-6deg); top: 6px; }
+.gallery-overlap .gallery-tile:nth-child(6n)   { transform: rotate(2deg); top: -6px; }
+.gallery-overlap .gallery-tile:hover,
+.gallery-overlap .gallery-tile:focus-visible {
+  transform: rotate(0deg) scale(1.35);
+  z-index: 20; transition-delay: 0s;
+  box-shadow: 0 24px 50px rgba(0,0,0,.4);
+}
+@media (max-width: 720px) {
+  .gallery-overlap { padding: 1.5rem 1rem; }
+  .gallery-overlap .gallery-tile {
+    width: clamp(96px, 26vw, 130px); margin: -4px -16px 16px 0;
+    top: 0 !important; transform: rotate(0deg) !important;
+  }
+  .gallery-overlap .gallery-tile:hover, .gallery-overlap .gallery-tile:focus-visible {
+    transform: scale(1.15) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-overlap .gallery-tile { transition: none; }
+}
