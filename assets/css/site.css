@@ -387,13 +387,13 @@ main:has(.closer) + .site-foot { margin-top: 0; }
   content: ''; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(to top, rgba(10,26,18,.75) 0%, rgba(10,26,18,.15) 38%, rgba(10,26,18,0) 60%);
 }
-.press-tile--guardian { grid-column: 1 / 2; grid-row: 1 / 3; }
-.press-tile--telegraph { grid-column: 2 / 3; grid-row: 1 / 2; }
-.press-tile--edgeservices { grid-column: 2 / 3; grid-row: 2 / 3; }
+.press-tile--dailymail { grid-column: 1 / 3; grid-row: 1 / 3; }
 .press-tile--eliteplus { grid-column: 3 / 4; grid-row: 1 / 3; }
-.press-tile--voa { grid-column: 1 / 2; grid-row: 3 / 4; }
-.press-tile--theitem { grid-column: 2 / 3; grid-row: 3 / 4; }
-.press-tile--thelady { grid-column: 3 / 4; grid-row: 3 / 4; }
+.press-tile--guardian { grid-column: 1 / 2; grid-row: 3 / 5; }
+.press-tile--telegraph { grid-column: 2 / 3; grid-row: 3 / 4; }
+.press-tile--edgeservices { grid-column: 2 / 3; grid-row: 4 / 5; }
+.press-tile--voa { grid-column: 3 / 4; grid-row: 3 / 4; }
+.press-tile--thelady { grid-column: 3 / 4; grid-row: 4 / 5; }
 .press-tile img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: top center;
@@ -417,12 +417,12 @@ main:has(.closer) + .site-foot { margin-top: 0; }
 }
 @media (max-width: 720px) {
   .press-mosaic { grid-template-columns: 1fr; grid-auto-rows: auto; padding: 0 24px; gap: 16px; }
+  .press-tile--dailymail,
   .press-tile--guardian,
   .press-tile--telegraph,
   .press-tile--edgeservices,
   .press-tile--eliteplus,
   .press-tile--voa,
-  .press-tile--theitem,
   .press-tile--thelady { grid-column: auto; grid-row: auto; }
   .press-tile { aspect-ratio: 16 / 10; }
 }
