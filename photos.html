@@ -12,8 +12,11 @@
 <style>
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--keyline);
+}
+@media (min-width: 560px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 760px) {
   .gallery { grid-template-columns: repeat(3, 1fr); }
@@ -32,6 +35,26 @@
 }
 .gallery > div {
   grid-column: 1 / -1;
+}
+.gallery-overlap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  justify-content: center;
+}
+.gallery-overlap-more {
+  display: none;
+  margin: 0 auto 2rem;
+  padding: .75rem 1.5rem;
+  font: inherit; font-size: var(--step--1);
+  color: #EDF3E7; background: transparent;
+  border: 1px solid rgba(237,243,231,.4); border-radius: 999px;
+  cursor: pointer;
+}
+@media (max-width: 720px) {
+  .gallery-overlap-more { display: block; }
+  .gallery-overlap:not(.is-expanded) .gallery-tile:nth-child(n+11) {
+    display: none;
+  }
 }
 .gallery figcaption {
   padding-top: var(--keyline);
@@ -393,7 +416,19 @@
       <a class="gallery-tile" data-lightbox="activities" data-lightbox-full="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.webp" data-lightbox-caption="A resident and carer looking out over the lake." href="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.webp"><picture><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.avif" type="image/avif"><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.webp" type="image/webp"><img src="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-162.avif" alt="A resident and carer looking out over the lake." loading="lazy"></picture></a>
       <a class="gallery-tile" data-lightbox="activities" data-lightbox-full="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.webp" data-lightbox-caption="A resident writing at a table." href="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.webp"><picture><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.avif" type="image/avif"><source srcset="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.webp" type="image/webp"><img src="assets/img/careresortchiangmai-care-resort-chiang-mai-activity-163.avif" alt="A resident writing at a table." loading="lazy"></picture></a>
     </div>
+    <button type="button" class="gallery-overlap-more" data-gallery-more="1">Show all 163 photos</button>
   </section>
+  <script>
+  (function () {
+    var btn = document.querySelector('[data-gallery-more]');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var gallery = btn.previousElementSibling;
+      gallery.classList.add('is-expanded');
+      btn.remove();
+    });
+  })();
+  </script>
 
   <section class="band band--surface">
     <div class="wrap">
